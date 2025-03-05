@@ -1,6 +1,6 @@
 # Practical Optimization of Apache Pulsar
 
-A series of articles on the practical optimization of Apache Pulsar, dispatched in Pulsar Meetup.
+A series of articles on the practical optimization of Apache Pulsar, distributed in Pulsar Meetup.
 
 All rights reserved by the author.
 
