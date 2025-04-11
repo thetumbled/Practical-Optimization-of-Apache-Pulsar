@@ -1,6 +1,3 @@
----
-icon: hand-wave
----
 
 # Practical Optimization of Apache Pulsar
 
@@ -12,5 +9,3 @@ Author: Wenzhi Feng, Apache Pulsar Committer and Apache BookKeeper contributor.\
 GitHub: https://github.com/thetumbled
 
 
-
-ddd
