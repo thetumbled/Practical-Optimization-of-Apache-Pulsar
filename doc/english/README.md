@@ -10,4 +10,5 @@ When reprinting, please indicate the source and attach the GitBook link: https:/
 
 For commercial use or other authorizations, please contact the author at thetumbled@apache.org.
 
-If you find any issues while reading the article, you are welcome to submit a PR or issue on GitHub: https://github.com/thetumbled/Practical-Optimization-of-Apache-Pulsar.
+If you find any issues while reading the article, you are welcome to submit a PR or issue on GitHub: [Practical Optimization of Apache Pulsar](https://github.com/thetumbled/Practical-Optimization-of-Apache-Pulsar)
+

@@ -10,6 +10,6 @@
 
 如需商业使用或其他授权，请联系作者：thetumbled@apache.org.
 
-如果阅读文章发现问题，欢迎在 github 给我提交 PR 或者 issue: https://github.com/thetumbled/Practical-Optimization-of-Apache-Pulsar
+如果阅读文章发现问题，欢迎在 github 给我提交 PR 或者 issue: [Practical Optimization of Apache Pulsar](https://github.com/thetumbled/Practical-Optimization-of-Apache-Pulsar)
 
 
