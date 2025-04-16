@@ -8,7 +8,7 @@ Author Introduction: Feng Wenzhi, Apache Pulsar Committer, Senior Engineer of BI
 
 When reprinting, please indicate the source and attach the GitBook link: https://tumbleds-library.gitbook.io/thetumbleds-library.
 
-For commercial use or other authorizations, please contact the author at thetumbled@apache.org.
+For commercial use or other authorizations, please contact the author at **thetumbled@apache.org**.
 
 If you find any issues while reading the article, you are welcome to submit a PR or issue on GitHub: [Practical Optimization of Apache Pulsar](https://github.com/thetumbled/Practical-Optimization-of-Apache-Pulsar)
 

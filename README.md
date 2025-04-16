@@ -23,7 +23,7 @@ If you find any issues while reading the article, you are welcome to submit a PR
 
 转载时请注明出处，并附上gitbook链接：https://tumbleds-library.gitbook.io/thetumbleds-library.
 
-如需商业使用或其他授权，请联系作者：thetumbled@apache.org.
+如需商业使用或其他授权，请联系作者：**thetumbled@apache.org**.
 
 如果阅读文章发现问题，欢迎在 github 给我提交 PR 或者 issue: https://github.com/thetumbled/Practical-Optimization-of-Apache-Pulsar
 
