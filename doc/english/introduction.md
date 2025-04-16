@@ -24,9 +24,7 @@ During my involvement in the development and maintenance of Apache Pulsar, I hav
 
 I have written 10 chapters in Chinese, totaling nearly 200 pages, covering topics such as Pulsar load balancing algorithms, delay queues (including both production and consumption ends), and BookKeeper load balancing. Previously, these materials were distributed to some participants at the Pulsar Meetup through an application process.
 
-Now, I plan to reorganize these materials to make them more accessible and easier to understand, in order to help users and developers of Pulsar optimize their experience with Pulsar. In addition, I will provide both Chinese and English versions and update them on [GitBook](https://tumbleds-library.gitbook.io/thetumbleds-library), while also synchronizing the content to [GitHub](https://github.com/thetumbled/Practical-Optimization-of-Apache-Pulsar).
-
-
+Now, I plan to reorganize these materials to make them more accessible and easier to understand, in order to help users and developers of Pulsar optimize their experience with Pulsar. In addition, I will provide both Chinese and English versions and update them on [GitBook](https://tumbleds-library.gitbook.io/thetumbleds-library), while also synchronizing the content to [GitHub](https://github.com/thetumbled/Practical-Optimization-of-Apache-Pulsar). If you enjoy the articles I have written, please give my GitHub repository a star, I would greatly appreciate it\~
 
 If you are interested in exploring more topics, feel free to leave a message to let me know, and I will consider incorporating new topics into the book. Therefore, this book is not limited to the existing 10 chapters, and new topics may also stem from your suggestions.
 
