@@ -4,7 +4,7 @@
 
 ## 作者
 
-冯文智，Apache Pulsar Committer，BIGO大数据存储领域的高级工程师，毕业于华中科技大学。
+冯文智，Apache Pulsar Committer，BIGO大数据存储高级工程师，毕业于华中科技大学。
 
 
 
@@ -19,8 +19,6 @@ Apache Pulsar 是一个分布式发布-订阅消息系统，其定位与 Kafka �
 实际上，许多默认设置往往不尽如人意。以Pulsar的一个关键组件——负载均衡为例，这是Pulsar相较于Kafka的一个显著优势所在。然而，其默认配置采用的负载均衡算法，即ThresholdShedder与LeastLongTermMessageRate的组合，却是一个糟糕的选择。经过我的分析和测试，这种配置的效果并不理想。但是，出于兼容性和稳定性等方面的考虑，许多配置的默认值是不宜更改的。因此，Pulsar的维护者们迫切需要掌握如何优化Pulsar服务的运行，以提供更卓越的服务。
 
 在参与Apache Pulsar的开发与维护过程中，我积累了丰富的经验和研究成果。这些成果不仅以代码的形式贡献给了社区，还被整合进了社区的主仓库，例如新的**负载均衡算法AvgShedder**和**延迟队列TimeBucket算法**等。我也有幸成为了Apache Pulsar的Committer。然而，为了让这些成果发挥出最大的效用，用户的理解与正确配置至关重要。因此，本书旨在帮助用户掌握这些知识。
-
-&#x20;
 
 &#x20;
 
