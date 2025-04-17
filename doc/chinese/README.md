@@ -19,4 +19,4 @@
 X账号：[@thetumbledd](https://x.com/thetumbledd)
 
 微信公众号：thetumbled
-<figure><img src="./asset/wechat.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/wechat.png" alt=""><figcaption></figcaption></figure>

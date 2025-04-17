@@ -19,4 +19,4 @@ The release of new articles will be announced on the WeChat public account and X
 X account: [@thetumbledd](https://x.com/thetumbledd)
 
 WeChat public account: thetumbled
-<figure><img src="./asset/wechat.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/wechat.png" alt=""><figcaption></figcaption></figure>
