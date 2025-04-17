@@ -12,6 +12,14 @@ For commercial use or other authorizations, please contact the author at thetumb
 
 If you find any issues while reading the article, you are welcome to submit a PR or issue on GitHub: https://github.com/thetumbled/Practical-Optimization-of-Apache-Pulsar.
 
+## Subscription
+The release of new articles will be announced on the WeChat public account and X platform. You are welcome to follow my WeChat public account and X account to receive the latest content in a timely manner.
+
+X account: [@thetumbledd](https://x.com/thetumbledd)
+
+WeChat public account: thetumbled
+<figure><img src="./asset/wechat.png" alt=""><figcaption></figcaption></figure>
+
 
 
 # Apache Pulsar 优化实战
@@ -27,4 +35,11 @@ If you find any issues while reading the article, you are welcome to submit a PR
 
 如果阅读文章发现问题，欢迎在 github 给我提交 PR 或者 issue: https://github.com/thetumbled/Practical-Optimization-of-Apache-Pulsar
 
+## 订阅
+新文章的发布会在微信公众号和X平台上进行通知，欢迎大家关注我的公众号和X账号，以便及时接收到最新内容。
+
+X账号：[@thetumbledd](https://x.com/thetumbledd)
+
+微信公众号：thetumbled
+<figure><img src="./asset/wechat.png" alt=""><figcaption></figcaption></figure>
 
