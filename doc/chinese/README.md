@@ -13,3 +13,10 @@
 如果阅读文章发现问题，欢迎在 github 给我提交 PR 或者 issue: [Practical Optimization of Apache Pulsar](https://github.com/thetumbled/Practical-Optimization-of-Apache-Pulsar)
 
 
+## 订阅
+新文章的发布会在微信公众号和X平台上进行通知，欢迎大家关注我的公众号和X账号，以便及时接收到最新内容。
+
+X账号：[@thetumbledd](https://x.com/thetumbledd)
+
+微信公众号：thetumbled
+<figure><img src="./asset/wechat.png" alt=""><figcaption></figcaption></figure>
