@@ -28,7 +28,7 @@ There is no doubt that we would expect higher-performance machines to handle mor
 
 Consider a specific example:
 
-<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/wps_doc_8.png" alt=""><figcaption></figcaption></figure>
 
 When looking solely at the Byte In/Out monitoring, we might think this is a perfect load balancing execution. The traffic on four machines is 28MB/s, 46MB/s, 55MB/s, and 66MB/s respectively. After load balancing, the traffic on all four machines hovers around 40MB/s.
 
@@ -46,9 +46,9 @@ Sometimes users may start a task with a large data throughput but a very short r
 
 Consider the following example: A simulated traffic is started, with the traffic consumption stopping every 1 minute and resuming after waiting for 1 minute. The old algorithm will keep executing load switching.
 
-<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/wps_doc_10.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/wps_doc_11.png" alt=""><figcaption></figcaption></figure>
 
 The bundle offloading count indicator keeps rising, indicating that bundle unload is constantly triggered, and the load balancing algorithm is frequently activated.
 
