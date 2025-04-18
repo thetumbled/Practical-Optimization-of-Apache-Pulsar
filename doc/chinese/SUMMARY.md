@@ -14,3 +14,4 @@
   * [4. 总结](di-er-zhang-fu-zai-jun-heng-suan-fa-yuan-li-yu-fen-xi-xie-zai-ce-le-loadsheddingstrategy/4.-zong-jie.md)
 * [第三章 负载均衡算法原理与分析 -- 放置策略PlacementStrategy](di-san-zhang-fu-zai-jun-heng-suan-fa-yuan-li-yu-fen-xi-fang-zhi-ce-le-placementstrategy/README.md)
   * [1. LeastLongTermMessageRate](di-san-zhang-fu-zai-jun-heng-suan-fa-yuan-li-yu-fen-xi-fang-zhi-ce-le-placementstrategy/1.-leastlongtermmessagerate.md)
+  * [2. LeastResourceUsageWithWeight](di-san-zhang-fu-zai-jun-heng-suan-fa-yuan-li-yu-fen-xi-fang-zhi-ce-le-placementstrategy/2.-leastresourceusagewithweight.md)
