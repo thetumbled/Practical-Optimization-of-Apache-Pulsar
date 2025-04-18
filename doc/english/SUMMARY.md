@@ -8,4 +8,4 @@
   * [3 The Birth of AvgShedder](chapter-1-load-balancing-algorithm/3-the-birth-of-avgshedder.md)
   * [4 Summary](chapter-1-load-balancing-algorithm/4-summary.md)
 * [Chapter 2: Load Balancing Algorithm Principles and Analysis -- Load Shedding Strategy](chapter-2-load-balancing-algorithm-principles-and-analysis-load-shedding-strategy/README.md)
-  * [ThresholdShedder](chapter-2-load-balancing-algorithm-principles-and-analysis-load-shedding-strategy/thresholdshedder.md)
+  * [1. ThresholdShedder](chapter-2-load-balancing-algorithm-principles-and-analysis-load-shedding-strategy/1.-thresholdshedder.md)
