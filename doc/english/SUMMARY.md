@@ -11,3 +11,4 @@
   * [1. ThresholdShedder](chapter-2-load-balancing-algorithm-principles-and-analysis-load-shedding-strategy/1.-thresholdshedder.md)
   * [2. OverloadShedder](chapter-2-load-balancing-algorithm-principles-and-analysis-load-shedding-strategy/2.-overloadshedder.md)
   * [3. UniformLoadShedder](chapter-2-load-balancing-algorithm-principles-and-analysis-load-shedding-strategy/3.-uniformloadshedder.md)
+  * [4. Summary](chapter-2-load-balancing-algorithm-principles-and-analysis-load-shedding-strategy/4.-summary.md)
