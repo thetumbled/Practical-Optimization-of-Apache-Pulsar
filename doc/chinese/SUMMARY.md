@@ -7,3 +7,5 @@
   * [2. 旧算法的缺陷](di-yi-zhang-fu-zai-jun-heng-suan-fa-ru-men/2.-jiu-suan-fa-de-que-xian.md)
   * [3. AvgShedder的诞生](di-yi-zhang-fu-zai-jun-heng-suan-fa-ru-men/3.-avgshedder-de-dan-sheng.md)
   * [4. 总结](di-yi-zhang-fu-zai-jun-heng-suan-fa-ru-men/4.-zong-jie.md)
+* [第二章 负载均衡算法原理与分析 -- 卸载策略LoadSheddingStrategy](di-er-zhang-fu-zai-jun-heng-suan-fa-yuan-li-yu-fen-xi-xie-zai-ce-le-loadsheddingstrategy/README.md)
+  * [1. ThresholdShedder](di-er-zhang-fu-zai-jun-heng-suan-fa-yuan-li-yu-fen-xi-xie-zai-ce-le-loadsheddingstrategy/1.-thresholdshedder.md)
