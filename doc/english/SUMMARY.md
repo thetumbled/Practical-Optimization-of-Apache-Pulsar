@@ -14,3 +14,4 @@
   * [4. Summary](chapter-2-load-balancing-algorithm-principles-and-analysis-load-shedding-strategy/4.-summary.md)
 * [Chapter 3: Load Balancing Algorithm Principles and Analysis -- Placement Strategy](chapter-3-load-balancing-algorithm-principles-and-analysis-placement-strategy.md)
   * [1. LeastLongTermMessageRate](chapter-3-load-balancing-algorithm-principles-and-analysis-placement-strategy/1.-leastlongtermmessagerate.md)
+  * [2. LeastResourceUsageWithWeight](chapter-3-load-balancing-algorithm-principles-and-analysis-placement-strategy/2.-leastresourceusagewithweight.md)
