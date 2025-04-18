@@ -55,6 +55,6 @@ Correctness refers to the old algorithms potentially making wrong decisions, lea
 
 Consider the following example using the combination of `ThresholdShedder + LeastResourceUsageWithWeight` algorithm:
 
-<figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
 
 It can be seen that the yellow machine frequently switches between high-load and low-load states. Its CPU usage drops from 80% to 40%, and then rises back to 80%. In this process, an over unloading issue is first triggered, followed by an over placement issue.

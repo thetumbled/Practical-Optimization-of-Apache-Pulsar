@@ -8,7 +8,7 @@ We previously introduced that the execution of load balancing is divided into `L
 
 
 
-<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
 
 The load balancer calls `LoadSheddingStrategy#findBundlesForUnloading` to find the bundles that need to be unloaded. It passes the load data (`LoadData`) it collects and the broker configuration (configured by the `broker.conf`file) and obtains a `MultiMap` that maps brokers to bundles.
 

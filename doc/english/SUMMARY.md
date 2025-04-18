@@ -9,3 +9,4 @@
   * [4 Summary](chapter-1-load-balancing-algorithm/4-summary.md)
 * [Chapter 2: Load Balancing Algorithm Principles and Analysis -- Load Shedding Strategy](chapter-2-load-balancing-algorithm-principles-and-analysis-load-shedding-strategy/README.md)
   * [1. ThresholdShedder](chapter-2-load-balancing-algorithm-principles-and-analysis-load-shedding-strategy/1.-thresholdshedder.md)
+  * [2. OverloadShedder](chapter-2-load-balancing-algorithm-principles-and-analysis-load-shedding-strategy/2.-overloadshedder.md)

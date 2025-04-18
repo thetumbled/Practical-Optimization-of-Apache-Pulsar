@@ -21,7 +21,7 @@ loadBalancerLoadPlacementStrategy=org.apache.pulsar.broker.loadbalance.impl.AvgS
 
 It can be seen that `AvgShedder` achieves a good level in all aspects and is a load balancing algorithm without obvious weaknesses. This has also been proven in practical applications:
 
-<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
 
 The range of resource utilization in the cluster (the difference between the highest and lowest resource utilization rates) remains within 15%, as we use the default configuration `loadEqualrAvgShedderLowThreshold=15`, which controls the threshold for the range of resource utilization that triggers the load balancing algorithm.
 
