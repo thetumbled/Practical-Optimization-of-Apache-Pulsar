@@ -16,3 +16,4 @@
   * [1. LeastLongTermMessageRate](chapter-3-load-balancing-algorithm-principles-and-analysis-placement-strategy/1.-leastlongtermmessagerate.md)
   * [2. LeastResourceUsageWithWeight](chapter-3-load-balancing-algorithm-principles-and-analysis-placement-strategy/2.-leastresourceusagewithweight.md)
   * [3. Strategy Selection](chapter-3-load-balancing-algorithm-principles-and-analysis-placement-strategy/3.-strategy-selection.md)
+  * [4. Summary](chapter-3-load-balancing-algorithm-principles-and-analysis-placement-strategy/4.-summary.md)
