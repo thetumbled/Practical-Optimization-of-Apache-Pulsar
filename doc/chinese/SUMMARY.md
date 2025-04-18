@@ -10,3 +10,5 @@
 * [第二章 负载均衡算法原理与分析 -- 卸载策略LoadSheddingStrategy](di-er-zhang-fu-zai-jun-heng-suan-fa-yuan-li-yu-fen-xi-xie-zai-ce-le-loadsheddingstrategy/README.md)
   * [1. ThresholdShedder](di-er-zhang-fu-zai-jun-heng-suan-fa-yuan-li-yu-fen-xi-xie-zai-ce-le-loadsheddingstrategy/1.-thresholdshedder.md)
   * [2. OverloadShedder](di-er-zhang-fu-zai-jun-heng-suan-fa-yuan-li-yu-fen-xi-xie-zai-ce-le-loadsheddingstrategy/2.-overloadshedder.md)
+  * [3. UniformLoadShedder](di-er-zhang-fu-zai-jun-heng-suan-fa-yuan-li-yu-fen-xi-xie-zai-ce-le-loadsheddingstrategy/3.-uniformloadshedder.md)
+  * [4. 总结](di-er-zhang-fu-zai-jun-heng-suan-fa-yuan-li-yu-fen-xi-xie-zai-ce-le-loadsheddingstrategy/4.-zong-jie.md)
