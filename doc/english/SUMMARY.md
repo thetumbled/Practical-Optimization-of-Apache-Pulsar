@@ -7,4 +7,5 @@
   * [2 Deficiencies of the Old Algorithms](chapter-1-load-balancing-algorithm/2-deficiencies-of-the-old-algorithms.md)
   * [3 The Birth of AvgShedder](chapter-1-load-balancing-algorithm/3-the-birth-of-avgshedder.md)
   * [4 Summary](chapter-1-load-balancing-algorithm/4-summary.md)
-* [Chapter 2: Load Balancing Algorithm Principles and Analysis -- Load Shedding Strategy](chapter-2-load-balancing-algorithm-principles-and-analysis-load-shedding-strategy.md)
+* [Chapter 2: Load Balancing Algorithm Principles and Analysis -- Load Shedding Strategy](chapter-2-load-balancing-algorithm-principles-and-analysis-load-shedding-strategy/README.md)
+  * [ThresholdShedder](chapter-2-load-balancing-algorithm-principles-and-analysis-load-shedding-strategy/thresholdshedder.md)

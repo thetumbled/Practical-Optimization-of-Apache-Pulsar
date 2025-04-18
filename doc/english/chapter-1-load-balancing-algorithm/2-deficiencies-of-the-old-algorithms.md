@@ -28,7 +28,7 @@ Consider a specific example:
 
 When looking solely at the Byte In/Out monitoring, we might think this is a perfect load balancing execution. The traffic on four machines is 28MB/s, 46MB/s, 55MB/s, and 66MB/s respectively. After load balancing, the traffic on all four machines hovers around 40MB/s.
 
-<figure><img src="../.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10) (2).png" alt=""><figcaption></figcaption></figure>
 
 However, when we look at the CPU usage, we find that the CPU usage of the blue machine is much lower than that of the other machines. The CPU usage of the blue machine is only 17%, while the CPU usage of the other machines reaches 50%. This is because the blue machine's performance far exceeds that of the other machines, with more than double the number of CPU cores. Therefore, under the same load, the resource usage of the blue machine will be significantly lower than that of the other machines. However, we would prefer the blue machine to handle more load. Thus, this is not a correct load balancing operation.
 

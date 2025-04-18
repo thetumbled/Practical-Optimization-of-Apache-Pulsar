@@ -1,0 +1,144 @@
+# ThresholdShedder
+
+ThresholdShedder is the default shedding algorithm, and we will analyze it first.
+
+## **Maximum Resource Utilization**
+
+ThresholdShedder first uses the following formula to calculate the maximum resource usage of each Broker. The resources include CPU, direct memory, network card inbound bandwidth, and network card outbound bandwidth.
+
+`org.apache.pulsar.policies.data.loadbalancer.LocalBrokerData#getMaxResourceUsageWithWeight(double, double, double, double)`
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+The calculation of resource utilization rate can also be configured with a weight, and the size of the weight is determined by configuring `loadBalancerBandwidthInResourceWeight`, `loadBalancerBandwidthOutResourceWeight`, `loadBalancerCPUResourceWeight`, and `loadBalancerDirectMemoryResourceWeight`.
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+Before version 2.11, the load balancing algorithm take accout of the usage of memory resources. However, in practice, it was found that there was no significant correlation between the broker's load and memory usage. Therefore, the following PR removed it:
+
+[https://github.com/apache/pulsar/pull/19559](https://github.com/apache/pulsar/pull/19559)
+
+&#x20;
+
+In fact, direct memory usage also has no significant correlation with the broker's load. Therefore, I submitted the following PR to change the default value of loadBalancerDirectMemoryResourceWeight to 0.
+
+[https://github.com/apache/pulsar/pull/21168](https://github.com/apache/pulsar/pull/21168)
+
+&#x20;
+
+In fact, in the load balancing algorithm, it is not the case that the more monitoring indicators considered, the better the effect is. Too many types of indicators can easily lead to various unexpected situations and add a lot of trouble to troubleshooting. Currently, we only consider CPU and network card bandwidth, which is sufficient.
+
+&#x20;
+
+## **Historical Weight Algorithm**
+
+After calculating the maximum resource usage of each Broker, a historical weight algorithm is executed to obtain the final score.
+
+`org.apache.pulsar.broker.loadbalance.impl.ThresholdShedder#updateAvgResourceUsage`
+
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+```
+historyUsage = historyUsage == null ? resourceUsage : historyUsage * historyPercentage + (1 - historyPercentage) * resourceUsage;
+brokerAvgResourceUsage.put(broker, historyUsage);
+```
+
+
+
+
+
+The `historyPercentage` is determined by the configuration `loadBalancerHistoryResourcePercentage`, with a default value of 0.9, meaning that the score calculated in the previous round accounts for 90%, and the score calculated in the current round accounts for only 10%.
+
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+For example, if the score of a broker in the previous round of load balancing was 80, and the current resource usage of the broker is 50%, then the current load score of the broker is `80*0.9 + 50*0.1 = 77`. It can be seen that there is a significant difference between the actual load of 50% and the score of 77.
+
+&#x20;
+
+The introduction of this historical weight algorithm is to avoid bundle switching due to short-term abnormal load fluctuations. However, this algorithm introduces a serious problem: it can cause a **significant difference between the actual load of the machine and the load score**, leading to misjudgments of low-load machines as high-load machines and vice versa, resulting in incorrect load decisions, which is the correctness issue mentioned in Chapter 1. This will be detailed in the next chapter's section on `LeastResourceUsageWithWeight`.
+
+&#x20;&#x20;
+
+Next, calculate the average score of all brokers in the cluster: `avgUsage = totalUsage / totalBrokers`. When the score of any broker exceeds a certain threshold above `avgUsage`, it is determined that the broker is overloaded. The threshold is determined by the configuration `loadBalancerBrokerThresholdShedderPercentage`, with a default value of 10.
+
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
+However, after a broker is determined to be overloaded, it does not necessarily mean that bundle will be unloaded from it. For example, if the broker only serves one single bundle, unloading this bundle would result in the broker no longer carrying any traffic, so the bundle unload will be skipped directly.
+
+&#x20;
+
+Therefore, in practice, we need to avoid the occurrence of oversized bundles. For example, if a single bundle causes a broker to be overloaded, placing it on any other broker will most likely also cause overload.
+
+To effectively avoid oversized bundles, on the one hand, we need to configure the number of bundles reasonably, and on the other hand, we need to prevent the occurrence of oversized partitions. Usually, when the throughput of a partition reaches 20MB/s, we will actively suggest that users perform partition expansion operations.
+
+Of course, the bundle split feature can also be used to avoid oversized bundles, but considering that triggering bundle split during peak business hours may cause business traffic fluctuations, we have not enabled this feature. More details about bundles will be introduced in subsequent chapters.
+
+
+
+
+
+## **Selecting Bundles**
+
+So, if we need to unload traffic from a broker, how do we select the bundles to unload?
+
+&#x20;
+
+First, calculate the amount of throughput to be unloaded, and then unload bundles that at least meet this throughput volume. The throughput mentioned here includes both inbound and outbound throughput. For example, if a bundle has an inbound throughput of 10MB and an outbound throughput of 20MB, its throughput is calculated as 10 + 20 = 30MB. If a broker has an inbound throughput of 1GB and an outbound throughput of 2GB, its throughput is calculated as 1 + 2 = 3GB.
+
+&#x20;
+
+The algorithm is as follows:
+
+<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+
+First, calculate the proportion of the traffic to be unloaded from the broker's total traffic:
+
+```
+percentOfTrafficToOffload = currentUsage - avgUsage - threshold + ADDITIONAL_THRESHOLD_PERCENT_MARGIN;
+```
+
+* **currentUsage** is the current load score of the broker (i.e., the result calculated by the historical weight algorithm).
+* **avgUsage** is the average broker score obtained earlier.
+* **threshold** is the configuration `loadBalancerBrokerThresholdShedderPercentage` introduced earlier.
+* **ADDITIONAL\_THRESHOLD\_PERCENT\_MARGIN** is a constant 0.05.
+
+&#x20;
+
+The amount of traffic to be unloaded is:
+
+```
+minimumThroughputToOffload = brokerCurrentThroughput * percentOfTrafficToOffload;
+```
+
+For example, assuming a broker's maximum resource usage is 80%, avgUsage is 60%, threshold is 10, and the broker's throughput is 10GB, then the throughput to be unloaded is `(0.8 - 0.6 - 0.1 + 0.05) * 10 = 1.5GB` of corresponding bundles.
+
+&#x20;
+
+There is also a configuration `loadBalancerBundleUnloadMinThroughputThreshold` to specify the minimum throughput threshold for unloading. The default value is 10MB. This is because unloading too little throughput has no significant effect on load balancing and can instead cause user connection interruptions.
+
+<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+
+After calculating the amount of throughput to be unloaded, the selection of bundles begins. The principle is simple: **select from the largest to the smallest.** Therefore, bundles with low throughput are almost impossible to be selected during the load balancing process.
+
+&#x20;
+
+&#x20;
+
+## **Patch**
+
+However, this algorithm has a flaw: **it only considers brokers with high load and does not take into account brokers with low load.** For example, if there are 11 brokers, with 10 of them having a load of 80% and 1 having a load of 5%, then the average load would be `(80*10 + 5) / 11 = 73.18`, and the unloading threshold would be `73.18 + 10 = 83.18`. Since `80 < 83.18`, unloading will not be triggered, and there will always be an idle broker with a load of 5%. In fact, this situation is not difficult to trigger and is very likely to occur during broker rolling restarts, as newly started brokers typically have a very low load.
+
+This PR fixes this flaw: [Support lower boundary shedding for ThresholdShedder](https://github.com/apache/pulsar/pull/17456). It applies a patch that, when the maximum resource usage of a broker (current usage) is less than `average usage - threshold`, it will unload a throughput volume of `minimumThroughputToOffload = brokerCurrentThroughput * threshold * LOWER_BOUNDARY_THRESHOLD_MARGIN` from the broker with the highest load.
+
+<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+
+However, note that this feature is controlled by the configuration `lowerBoundarySheddingEnabled`, which is disabled by default. Users who need it must set it to `true` explicitly.
+
+<figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+
+&#x20;
+
+
+
