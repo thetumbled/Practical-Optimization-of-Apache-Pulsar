@@ -10,7 +10,10 @@ When reprinting, please indicate the source and attach the GitBook link: https:/
 
 For commercial use or other authorizations, please contact the author at thetumbled@apache.org.
 
-If you find any issues while reading the article, you are welcome to submit a PR or issue on GitHub: https://github.com/thetumbled/Practical-Optimization-of-Apache-Pulsar.
+If you find any issues while reading the article, you are welcome to submit a PR or issue on GitHub: [Practical Optimization of Apache Pulsar](https://github.com/thetumbled/Practical-Optimization-of-Apache-Pulsar). I will be grateful for your star on my GitHub repository\~
+
+If you are interested in exploring more topics, feel free to leave a message to let me know, and I will consider incorporating new topics into the book.
+
 
 ## Subscription
 The release of new articles will be announced on the WeChat public account and X platform. You are welcome to follow my WeChat public account and X account to receive the latest content in a timely manner.
@@ -33,7 +36,9 @@ WeChat public account: thetumbled
 
 如需商业使用或其他授权，请联系作者：**thetumbled@apache.org**.
 
-如果阅读文章发现问题，欢迎在 github 给我提交 PR 或者 issue: https://github.com/thetumbled/Practical-Optimization-of-Apache-Pulsar
+如果阅读文章发现问题，欢迎在 github 给我提交 PR 或者 issue: https://github.com/thetumbled/Practical-Optimization-of-Apache-Pulsar. 我会非常感谢你在我的GitHub仓库上点个star\~
+
+如果你有兴趣探索更多主题，欢迎留言告诉我，我会考虑将新主题纳入书中。
 
 ## 订阅
 新文章的发布会在微信公众号和X平台上进行通知，欢迎大家关注我的公众号和X账号，以便及时接收到最新内容。
