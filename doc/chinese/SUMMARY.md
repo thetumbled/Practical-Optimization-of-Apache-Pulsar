@@ -4,3 +4,4 @@
 * [介绍](jie-shao.md)
 * [第一章 负载均衡算法入门](di-yi-zhang-fu-zai-jun-heng-suan-fa-ru-men.md)
   * [1. 介绍](di-yi-zhang-fu-zai-jun-heng-suan-fa-ru-men/1.-jie-shao.md)
+  * [2. 旧算法的缺陷](di-yi-zhang-fu-zai-jun-heng-suan-fa-ru-men/2.-jiu-suan-fa-de-que-xian.md)
