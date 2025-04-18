@@ -46,7 +46,7 @@ AvgShedder achieves a good balance between stability and timeliness by using bot
 
 The effect in the production environment is shown in the figure below:
 
-<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 During the use of old load balancing algorithms, our Pulsar cluster would trigger dozens or even hundreds of load switches daily. Especially during peak traffic periods, frequent mis-triggering of load switches would occur, causing user traffic to be cut off and leading to negative user feedback.
 
