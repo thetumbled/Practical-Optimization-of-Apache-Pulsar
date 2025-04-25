@@ -1,0 +1,158 @@
+# ThresholdShedder + LeastResourceUsageWithWeight
+
+## **环境配置**
+
+搭建一个5节点的broker集群，包含30个bookie。
+
+&#x20;
+
+负载均衡相关配置如下：
+
+```
+loadBalancerLoadSheddingStrategy=org.apache.pulsar.broker.loadbalance.impl.ThresholdShedder
+loadBalancerLoadPlacementStrategy=org.apache.pulsar.broker.loadbalance.impl.LeastResourceUsageWithWeight
+```
+
+使用ThresholdShedder + LeastResourceUsageWithWeight的组合，配置基本都使用默认值，但是同样关闭了bundle split、bundle均匀分布的特性。
+
+```
+loadBalancerDistributeBundlesEvenlyEnabled=false
+loadBalancerAutoBundleSplitEnabled=false
+loadBalancerAutoUnloadSplitBundlesEnabled=false
+```
+
+&#x20;
+
+&#x20;
+
+## **过度加载问题**
+
+启动三个压测任务：
+
+<figure><img src="../.gitbook/assets/image (47).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (48).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (49).png" alt=""><figcaption></figcaption></figure>
+
+启动压测任务后，集群**花费了22min**才稳定了下来，触发了8次bundle unload。
+
+&#x20;
+
+为了方便debug，添加了部分日志。第一次触发bundle unload时的日志如下：
+
+```
+2024-06-11T15:33:42,642+0800 [pulsar-load-manager-1-1] INFO  org.apache.pulsar.broker.loadbalance.impl.ThresholdShedder - brokerAvgResourceUsageWithoutHistory: {XXX.83:8081=0.6200548553466797, XXX.32:8081=0.6142524337768555, XXX.87:8081=0.34531837463378906, XXX.206:8081=0.6850704193115235, XXX.161:8081=0.4193758010864258}
+```
+
+这行日志打印了所有broker的**中间分数**（即当前所有broker的**最大资源使用率**，未**使用历史均值打分算法**），可以看到当前XXX.83:8081、XXX.32:8081、XXX.206:8081是高载broker，另外两个broker是低载的。
+
+&#x20;
+
+```
+2024-06-11T15:33:42,642+0800 [pulsar-load-manager-1-1] INFO  org.apache.pulsar.broker.loadbalance.impl.ThresholdShedder - brokerAvgResourceUsage: {XXX.83:8081=0.146445592841173, XXX.32:8081=0.1780747564543283, XXX.87:8081=0.13442747117624326, XXX.206:8081=0.28951184996156754, XXX.161:8081=0.11923764428233738}, avgUsage: 0.1735394629431299, threshold: 0.1, minThroughputThreshold: 10.0MB
+```
+
+这行日志打印了所有broker的**最终得分**（即**使用了历史均值打分算法**）、平均分、阈值。
+
+&#x20;&#x20;
+
+从前面两行日志可知，在启动压测任务前，各个 broker 负载均处于较低水平，启动压测任务后负载突增，此时所有 broker 的得分与真实负载存在较大偏差。其中，仅 XXX.206:8081 的得分超过了阈值，即 28.95% > 17.35% + 10.0% 。于是对其执行 bundle unload 操作，得到如下日志：
+
+```
+2024-06-11T15:33:42,642+0800 [pulsar-load-manager-1-1] INFO  org.apache.pulsar.broker.loadbalance.impl.ThresholdShedder - Attempting to shed load on XXX.206:8081, which has max resource usage above avgUsage  and threshold 28.951184996156755% > 17.35394629431299% + 10.0% -- Offloading at least 14.70925448705765 MByte/s of traffic, left throughput 208.25151973726722 MByte/s
+```
+
+&#x20;
+
+卸载一个bundle，并立刻执行放置策略LeastResourceUsageWithWeight：
+
+```
+2024-06-11T15:33:42,663+0800 [pulsar-load-manager-1-1] INFO  org.apache.pulsar.broker.loadbalance.impl.LeastResourceUsageWithWeight - brokerAvgResourceUsageWithWeight:{XXX.83:8081=0.08251018381118773, XXX.32:8081=0.11141611766815185, XXX.87:8081=0.0459994751214981, XXX.206:8081=0.23925241661071778, XXX.161:8081=0.06012571454048156}, avgUsage:0.10786078155040742, diffThreshold:0.1, candidates:[XXX.83:8081, XXX.32:8081, XXX.87:8081, XXX.206:8081, XXX.161:8081]
+```
+
+&#x20;
+
+由于任意一个 broker 的分数加上 10 均大于 10.7% 的平均分，故而候选 broker 列表为空，进而**触发随机分配机制**。这正是我们之前所阐述的 LeastResourceUsageWithWeight 问题：候选 broker 列表极易为空，最终导致随机分配情况的出现。
+
+```
+2024-06-11T15:33:42,663+0800 [pulsar-load-manager-1-1] WARN  org.apache.pulsar.broker.loadbalance.impl.LeastResourceUsageWithWeight - Assign randomly as all 5 brokers are overloaded.
+```
+
+
+
+```
+2024-06-11T15:33:42,663+0800 [pulsar-load-manager-1-1] INFO  org.apache.pulsar.broker.loadbalance.impl.LeastResourceUsageWithWeight - Selected 5 best brokers: [XXX.83:8081, XXX.32:8081, XXX.87:8081, XXX.206:8081, XXX.161:8081] from candidate brokers: [XXX.83:8081, XXX.32:8081, XXX.87:8081, XXX.206:8081, XXX.161:8081], assign bundle public/default/0x70000000_0x80000000 to broker XXX.83:8081
+2024-06-11T15:33:42,663+0800 [pulsar-load-manager-1-1] INFO  org.apache.pulsar.broker.loadbalance.impl.ModularLoadManagerImpl - [ThresholdShedder] Unloading bundle: public/default/0x70000000_0x80000000 from broker XXX.206:8081 to dest broker XXX.83:8081
+```
+
+可以看到，卸载下来的bundle**分配到了高载的**XXX.83:8081！这是一次失败的负载均衡决策。
+
+在本次实验中，该问题的触发概率极高，近乎必然出现。从下图可以清晰看到，问题已连续四次触发。
+
+<figure><img src="../.gitbook/assets/image (51).png" alt=""><figcaption></figcaption></figure>
+
+复现概率之所以如此之高，**历史均值打分算法也要背锅**。这是因为候选 broker 的挑选条件为：broker 打分需比平均分低 10 分，这意味着 broker 之间的分数**要拉开较大差距**。然而，由于历史均值打分算法的影响，所有 broker 的分数仅能从 20 左右逐渐逼近其真实负载，致使不同 broker 之间的**分数长期难以拉开差距**，如此一来，LeastResourceUsageWithWeight 算法便只能进行随机分配了 。&#x20;
+
+
+
+
+
+
+
+## **过度卸载问题**
+
+为了增加单台broker的负载，缩容两台broker，观察到一次异常的负载均衡。
+
+<figure><img src="../.gitbook/assets/image (52).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (53).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (54).png" alt=""><figcaption></figcaption></figure>
+
+可以看到，黄色机器在高负载与低负载状态间频繁切换。其 CPU 使用率从 80% 降至 40%，随后又从 40% 回升至 80%。在此过程中，先是引发了过度卸载问题，紧接着又触发了过度加载问题。
+
+主要执行了三轮负载均衡：
+
+1. 在第一轮操作中，将 bundle 从负载最高的黄色机器 XXX.206:8081 卸载，并转移至绿色机器 XXX.83:8081。然而，在这一轮中对 bundle 执行了四次卸载操作，致使黄色机器 XXX.206:8081 的负载急剧下降，迅速转变为负载最低的 broker，从而遭遇了**过度卸载的问题**。
+2. 在第二轮操作中，将 11 个 bundle 从负载最高的蓝色机器 XXX.32:8081 卸载，并分配至同样处于高负载状态的绿色机器 XXX.83:8081 以及低负载的机器 XXX.206:8081。在此过程中，出现了**过度卸载的情况**，导致蓝色机器 XXX.32:8081 成为负载最低的 broker；同时，也存在**过度加载的问题**，即错误地将 bundle 分配给了高负载的绿色机器 XXX.83:8081。
+3. 在第三轮操作中，将 bundle 从负载最高的绿色机器 XXX.83:8081 卸载并**重新加载至蓝色**机器 XXX.32:8081 后，集群才进入均衡状态，整个过程共计耗时 30 分钟。&#x20;
+
+&#x20;
+
+借助 broker 日志，我们能够更为深入地洞察上述过程：
+
+<figure><img src="../.gitbook/assets/image (55).png" alt=""><figcaption></figcaption></figure>
+
+在第一轮 bundle unload 的 10 分钟内，可以观察到系统**始终将 XXX.206:8081 判定为高载 broker**，并持续从该节点卸载 bundle，最终引发了**过度卸载的问题**。追根溯源，这是由于历史均值打分算法的特性，使得 XXX.206:8081 的打分变化极为缓慢。**即便该节点已经卸载了 bundle，且其真实负载也随之改变，但由于得分依然居高不下，所以仍被持续判定为高载 broker，进而不断被卸载 bundle 。**
+
+&#x20;
+
+&#x20;
+
+而第二轮bundle unload时，从最高载的XXX.32:8081身上卸载bundle，但是遇到了过度加载的问题，将bundle卸载到了同样高载的XXX.83:8081身上。
+
+```
+2024-06-12T10:24:02,245+0800 [pulsar-load-manager-1-1] INFO  org.apache.pulsar.broker.loadbalance.impl.ThresholdShedder - Attempting to shed load on XXX.32:8081, which has max resource usage above avgUsage  and threshold 78.09468007403726% > 65.79112414711298% + 10.0% -- Offloading at least 14.886936767013715 MByte/s of traffic, left throughput 188.94441491927364 MByte/s
+2024-06-12T10:24:02,246+0800 [pulsar-load-manager-1-1] INFO  org.apache.pulsar.broker.loadbalance.impl.LeastResourceUsageWithWeight - brokerAvgResourceUsageWithWeight:{XXX.83:8081=0.6968493632164602, XXX.32:8081=0.6564280053774565, XXX.206:8081=0.5447576150322107}, avgUsage:0.6326783278753757, diffThreshold:0.1, candidates:[XXX.83:8081, XXX.32:8081, XXX.206:8081]
+2024-06-12T10:24:02,246+0800 [pulsar-load-manager-1-1] WARN  org.apache.pulsar.broker.loadbalance.impl.LeastResourceUsageWithWeight - Assign randomly as all 3 brokers are overloaded.
+2024-06-12T10:24:02,247+0800 [pulsar-load-manager-1-1] INFO  org.apache.pulsar.broker.loadbalance.impl.ModularLoadManagerImpl - [ThresholdShedder] Unloading bundle: public/default/0x30000000_0x40000000 from broker XXX.32:8081 to dest broker XXX.83:8081
+```
+
+至此，我们已经用实验验证了ThresholdShedder + LeastResourceUsageWithWeight的两个核心缺陷：
+
+* 过度加载问题
+* 过度卸载问题
+
+这两个问题因都因为历史打分算法而变得严重，过程中也可以看出ThresholdShedder + LeastResourceUsageWithWeight的负载均衡速度并不快，由于错误的负载均衡决策，往往需要反复地执行负载均衡最终才能稳定下来。
+
+&#x20;
+
+&#x20;
+
+
+
+
+
+
+

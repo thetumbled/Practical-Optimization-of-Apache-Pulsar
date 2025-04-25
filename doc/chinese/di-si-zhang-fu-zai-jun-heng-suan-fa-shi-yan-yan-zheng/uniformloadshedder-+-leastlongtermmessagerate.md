@@ -1,0 +1,97 @@
+# UniformLoadShedder + LeastLongTermMessageRate
+
+## **环境配置**
+
+搭建了一个4节点的broker集群，包含20个bookie，但是有一台机器XXX.34是异构的，它的性能比另外三台机器强很多。
+
+负载均衡相关配置如下：
+
+```
+loadBalancerLoadSheddingStrategy=org.apache.pulsar.broker.loadbalance.impl.UniformLoadShedder
+loadBalancerLoadPlacementStrategy=org.apache.pulsar.broker.loadbalance.impl.LeastLongTermMessageRate
+```
+
+使用UniformLoadShedder + LeastLongTermMessageRate的组合，配置基本都使用默认值，因此允许最大消息速率是最小消息速率的1.5倍，最大流量吞吐是最小流量吞吐的4倍。
+
+注记：实际上，并无依据表明默认设置中流量吞吐比值的阈值要大于消息速率比值的阈值，建议用户依据实际场景对这两个阈值进行微调。
+
+
+
+关闭了bundle split、bundle均匀分布的特性：
+
+```
+loadBalancerDistributeBundlesEvenlyEnabled=false
+loadBalancerAutoBundleSplitEnabled=false
+loadBalancerAutoUnloadSplitBundlesEnabled=false
+```
+
+**强烈建议关闭 bundle 均匀分布特性！**&#x8BE5;特性会致使负载均衡算法近乎失效。原因在于，它会强制不同 broker 间的 bundle 数量一致，在筛选候选 broker 时，会将绝大多数 broker 过滤掉，在其筛选完成后才执行负载均衡算法。对于小型集群而言，传递给负载均衡算法的候选 broker 列表通常仅有 1 个，此时负载均衡算法基本失去作用。
+
+&#x20;
+
+## **异构环境**
+
+启动两个压测任务：
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+为了观察UniformLoadShedder算法的执行情况，增加两个panel：
+
+* 进出流量吞吐的最大最小比值
+
+`max(sum(pulsar_throughput_in+pulsar_throughput_out) by (instance))/min(sum(pulsar_throughput_in+pulsar_throughput_out) by (instance))`
+
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+
+
+* 进出消息速率的最大最小比值。
+
+`max(sum(pulsar_rate_in+pulsar_rate_out) by (instance))/min(sum(pulsar_rate_in+pulsar_rate_out) by (instance))`
+
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+可以看到，经过一轮负载均衡后这两个比值都从2.5下降到1.2左右。
+
+
+
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+
+从消息速率、流量吞吐的角度来看，这一轮的负载均衡非常成功，集群的broker之间的消息速率、流量吞吐都非常趋近，而且5min以内就达到了稳定状态。
+
+&#x20;
+
+然而，当我们观察资源使用率指标时便会发现，**集群实际上处于一种相当不均衡的状态**。由于 XXX.34 的性能显著优于其他 broker，致使其资源使用率远低于其他节点。这无疑造成了资源的浪费。倘若每台低性能 broker 所分摊到的负载进一步增加，便极有可能出现超载情况；而高性能机器 XXX.34 却依旧维持在低负载水平，这显然并非我们所期望的理想状态。我们期望 XXX.34 能够承担起更多的负载任务。
+
+<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+
+
+
+## **负载抖动**
+
+为了模拟突增突减的负载，增加一个topic：persistent://public/default/testTxn，生产流量跟其他任务一样，但是消费流量**每运行1min就停止，等待1min后再继续消费**。
+
+如下：
+
+<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+
+观察监控可以发现，负载均衡算法**一直在unload bundle**，因为突增、突减的消费流量导致消息速率的最大最小比值超过配置的阈值1.5，触发bundle unload。
+
+<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+
+
+
+
+
+
+

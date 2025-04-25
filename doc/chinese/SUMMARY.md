@@ -17,3 +17,8 @@
   * [2. LeastResourceUsageWithWeight](di-san-zhang-fu-zai-jun-heng-suan-fa-fang-zhi-ce-le-placementstrategy/2.-leastresourceusagewithweight.md)
   * [3. 策略选择](di-san-zhang-fu-zai-jun-heng-suan-fa-fang-zhi-ce-le-placementstrategy/3.-ce-le-xuan-ze.md)
   * [4. 总结](di-san-zhang-fu-zai-jun-heng-suan-fa-fang-zhi-ce-le-placementstrategy/4.-zong-jie.md)
+* [第四章 负载均衡算法--实验验证](di-si-zhang-fu-zai-jun-heng-suan-fa-shi-yan-yan-zheng/README.md)
+  * [UniformLoadShedder + LeastLongTermMessageRate](di-si-zhang-fu-zai-jun-heng-suan-fa-shi-yan-yan-zheng/uniformloadshedder-+-leastlongtermmessagerate.md)
+  * [ThresholdShedder + LeastResourceUsageWithWeight](di-si-zhang-fu-zai-jun-heng-suan-fa-shi-yan-yan-zheng/thresholdshedder-+-leastresourceusagewithweight.md)
+  * [总结](di-si-zhang-fu-zai-jun-heng-suan-fa-shi-yan-yan-zheng/zong-jie.md)
+* [第五章 负载均衡算法--AvgShedder](di-wu-zhang-fu-zai-jun-heng-suan-fa-avgshedder.md)
