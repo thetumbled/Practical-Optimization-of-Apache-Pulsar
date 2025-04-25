@@ -25,3 +25,4 @@
   * [打分算法](di-wu-zhang-fu-zai-jun-heng-suan-fa-avgshedder/da-fen-suan-fa.md)
   * [多次触发](di-wu-zhang-fu-zai-jun-heng-suan-fa-avgshedder/duo-ci-chu-fa.md)
   * [放置策略](di-wu-zhang-fu-zai-jun-heng-suan-fa-avgshedder/fang-zhi-ce-le.md)
+* [第六章 负载均衡--使用指南](di-liu-zhang-fu-zai-jun-heng-shi-yong-zhi-nan.md)
