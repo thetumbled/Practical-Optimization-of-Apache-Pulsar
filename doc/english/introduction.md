@@ -32,6 +32,32 @@ I will announce the release of my new article through the X platform, and I welc
 
 
 
+## &#x20;Chapter difficulty
+
+Although I try my best to introduce the relevant content in a simple and understandable way, for beginners of Pulsar, some of the article content may still appear obscure and difficult to understand. Therefore, I have made a simple assessment mark for the difficulty of each chapter, dividing it into two levels: difficult and easy, so that readers can easily jump to the content they are interested in.
+
+* Easy
+
+[Chapter 1 Load Balancing Algorithm - Introduction](chapter-1-load-balancing-algorithm/)
+
+[Chapter 4 Load Balancing Algorithm - Experimental Verification](chapter-4-load-balancing-algorithm-experimental-verification.md)
+
+[Chapter 6 Load Balancing - Pratical Manual](chapter-6-load-balancing-pratical-manual.md)
+
+&#x20;
+
+* Difficult
+
+[Chapter 2 Load Balancing Algorithm - LoadSheddingStrategy](chapter-2-load-balancing-algorithm-principles-and-analysis-load-shedding-strategy/)
+
+[Chapter 3 Load Balancing Algorithm - Placement Strategy](chapter-3-load-balancing-algorithm-principles-and-analysis-placement-strategy.md)
+
+[Chapter 5 Load Balancing Algorithm - AvgShedder](chapter-5-load-balancing-algorithm-avgshedder.md)
+
+
+
+&#x20;
+
 &#x20;
 
 
