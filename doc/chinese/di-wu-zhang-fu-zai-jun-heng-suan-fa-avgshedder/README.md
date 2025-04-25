@@ -4,8 +4,10 @@
 
 设计文档在如下PR里包含了：
 
-{% @github-files/github-code-block %}
+[\[improve\] \[pip\] PIP-364: Introduce a new load balance algorithm AvgShedder](https://github.com/apache/pulsar/pull/22946)
+
+
 
 实现源码可以在如下PR里看到：
 
-{% @github-files/github-code-block %}
+[\[improve\]\[broker\] PIP-364: Introduce a new load balance algorithm AvgShedder](https://github.com/apache/pulsar/pull/22949)
