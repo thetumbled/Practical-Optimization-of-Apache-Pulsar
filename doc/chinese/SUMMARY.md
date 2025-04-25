@@ -21,4 +21,7 @@
   * [UniformLoadShedder + LeastLongTermMessageRate](di-si-zhang-fu-zai-jun-heng-suan-fa-shi-yan-yan-zheng/uniformloadshedder-+-leastlongtermmessagerate.md)
   * [ThresholdShedder + LeastResourceUsageWithWeight](di-si-zhang-fu-zai-jun-heng-suan-fa-shi-yan-yan-zheng/thresholdshedder-+-leastresourceusagewithweight.md)
   * [总结](di-si-zhang-fu-zai-jun-heng-suan-fa-shi-yan-yan-zheng/zong-jie.md)
-* [第五章 负载均衡算法--AvgShedder](di-wu-zhang-fu-zai-jun-heng-suan-fa-avgshedder.md)
+* [第五章 负载均衡算法--AvgShedder](di-wu-zhang-fu-zai-jun-heng-suan-fa-avgshedder/README.md)
+  * [打分算法](di-wu-zhang-fu-zai-jun-heng-suan-fa-avgshedder/da-fen-suan-fa.md)
+  * [多次触发](di-wu-zhang-fu-zai-jun-heng-suan-fa-avgshedder/duo-ci-chu-fa.md)
+  * [放置策略](di-wu-zhang-fu-zai-jun-heng-suan-fa-avgshedder/fang-zhi-ce-le.md)

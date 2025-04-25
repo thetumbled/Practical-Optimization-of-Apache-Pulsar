@@ -33,9 +33,9 @@ loadBalancerAutoUnloadSplitBundlesEnabled=false
 
 启动两个压测任务：
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 为了观察UniformLoadShedder算法的执行情况，增加两个panel：
 
@@ -43,7 +43,7 @@ loadBalancerAutoUnloadSplitBundlesEnabled=false
 
 `max(sum(pulsar_throughput_in+pulsar_throughput_out) by (instance))/min(sum(pulsar_throughput_in+pulsar_throughput_out) by (instance))`
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -51,15 +51,15 @@ loadBalancerAutoUnloadSplitBundlesEnabled=false
 
 `max(sum(pulsar_rate_in+pulsar_rate_out) by (instance))/min(sum(pulsar_rate_in+pulsar_rate_out) by (instance))`
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 可以看到，经过一轮负载均衡后这两个比值都从2.5下降到1.2左右。
 
 
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 

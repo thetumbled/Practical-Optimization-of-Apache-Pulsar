@@ -5,7 +5,7 @@
 * ThresholdShedder + LeastResourceUsageWithWeight
 * UniformLoadShedder + LeastLongTermMessageRate
 
-实验过程旨在增强前文分析所得结论的可靠性。如果你对实验细节不感兴趣，亦可直接跳过本章，转而阅读[第五章 AvgShedder](../di-wu-zhang-fu-zai-jun-heng-suan-fa-avgshedder.md) 的相关内容。
+实验过程旨在增强前文分析所得结论的可靠性。如果你对实验细节不感兴趣，亦可直接跳过本章，转而阅读[第五章 AvgShedder](../di-wu-zhang-fu-zai-jun-heng-suan-fa-avgshedder/) 的相关内容。
 
 
 
