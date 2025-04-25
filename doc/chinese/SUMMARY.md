@@ -27,4 +27,6 @@
   * [3. 放置策略](di-wu-zhang-fu-zai-jun-heng-suan-fa-avgshedder/3.-fang-zhi-ce-le.md)
   * [4. 线上效果](di-wu-zhang-fu-zai-jun-heng-suan-fa-avgshedder/4.-xian-shang-xiao-guo.md)
   * [5. 对比实验](di-wu-zhang-fu-zai-jun-heng-suan-fa-avgshedder/5.-dui-bi-shi-yan.md)
+  * [6. 评分](di-wu-zhang-fu-zai-jun-heng-suan-fa-avgshedder/6.-ping-fen.md)
+  * [7. 总结](di-wu-zhang-fu-zai-jun-heng-suan-fa-avgshedder/7.-zong-jie.md)
 * [第六章 负载均衡--使用指南](di-liu-zhang-fu-zai-jun-heng-shi-yong-zhi-nan.md)
