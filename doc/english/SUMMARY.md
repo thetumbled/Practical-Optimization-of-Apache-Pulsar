@@ -19,5 +19,7 @@
   * [4. Summary](chapter-3-load-balancing-algorithm-principles-and-analysis-placement-strategy/4.-summary.md)
 * [Chapter 4 Load Balancing Algorithm - Experimental Verification](chapter-4-load-balancing-algorithm-experimental-verification/README.md)
   * [1. UniformLoadShedder + LeastLongTermMessageRate](chapter-4-load-balancing-algorithm-experimental-verification/1.-uniformloadshedder-+-leastlongtermmessagerate.md)
+  * [2. ThresholdShedder + LeastResourceUsageWithWeight](chapter-4-load-balancing-algorithm-experimental-verification/2.-thresholdshedder-+-leastresourceusagewithweight.md)
+  * [3. Summary](chapter-4-load-balancing-algorithm-experimental-verification/3.-summary.md)
 * [Chapter 5 Load Balancing Algorithm - AvgShedder](chapter-5-load-balancing-algorithm-avgshedder.md)
 * [Chapter 6 Load Balancing - Pratical Manual](chapter-6-load-balancing-pratical-manual.md)
