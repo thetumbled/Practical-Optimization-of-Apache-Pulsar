@@ -22,7 +22,7 @@ During my involvement in the development and maintenance of Apache Pulsar, I hav
 
 ## Plan
 
-I have written 10 chapters in Chinese, totaling nearly 200 pages, covering topics such as Pulsar load balancing algorithms, delay queues (including both production and consumption ends), and BookKeeper load balancing. Previously, these materials were distributed to some participants at the Pulsar Meetup through an application process.
+I have written 10 chapters in Chinese, totaling nearly 200 pages, covering topics such as Pulsar load balancing algorithms, delay queues (including both production and consumption ends), and BookKeeper load balancing, which is not supported in the community version. Previously, these materials were distributed to some participants at the Pulsar Meetup through an application process.
 
 Now, I plan to reorganize these materials to make them more accessible and easier to understand, in order to help users and developers of Pulsar optimize their experience with Pulsar. In addition, I will provide both Chinese and English versions and update them on [GitBook](https://tumbleds-library.gitbook.io/thetumbleds-library), while also synchronizing the content to [GitHub](https://github.com/thetumbled/Practical-Optimization-of-Apache-Pulsar). If you enjoy the articles I have written, please give my GitHub repository a star, I would greatly appreciate it\~
 
@@ -34,7 +34,7 @@ I will announce the release of my new article through the X platform, and I welc
 
 ## &#x20;Chapter difficulty
 
-Although I try my best to introduce the relevant content in a simple and understandable way, for beginners of Pulsar, some of the article content may still appear obscure and difficult to understand. Therefore, I have made a simple assessment mark for the difficulty of each chapter, dividing it into two levels: difficult and easy, so that readers can easily jump to the content they are interested in.
+Despite my efforts to present the content in a straightforward and comprehensible manner, for beginners of Pulsar, some of the article content may still appear obscure and difficult to understand. Consequently, I have assigned a straightforward assessment score for the difficulty level of each chapter, categorizing it into two levels: difficult and easy. This enables readers to effortlessly navigate to the content that interests them.
 
 * Easy
 
