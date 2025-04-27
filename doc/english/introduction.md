@@ -50,7 +50,7 @@ Despite my efforts to present the content in a straightforward and comprehensibl
 
 [Chapter 2 Load Balancing Algorithm - LoadSheddingStrategy](chapter-2-load-balancing-algorithm-principles-and-analysis-load-shedding-strategy/)
 
-[Chapter 3 Load Balancing Algorithm - Placement Strategy](chapter-3-load-balancing-algorithm-principles-and-analysis-placement-strategy.md)
+[Chapter 3 Load Balancing Algorithm - Placement Strategy](chapter-3-load-balancing-algorithm-principles-and-analysis-placement-strategy/README)
 
 [Chapter 5 Load Balancing Algorithm - AvgShedder](chapter-5-load-balancing-algorithm-avgshedder/)
 

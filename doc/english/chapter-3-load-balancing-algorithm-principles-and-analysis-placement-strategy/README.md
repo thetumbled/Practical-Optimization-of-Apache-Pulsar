@@ -6,11 +6,11 @@ In Chapter 2, we introduced all the implementations of the `LoadSheddingStrategy
 
 The placement strategy is controlled by the configuration `loadBalancerLoadPlacementStrategy`, with the default being the `LeastLongTermMessageRate` strategy.
 
-<figure><img src=".gitbook/assets/image (33).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image%20(33).png" alt=""><figcaption></figcaption></figure>
 
 The implemented interface is named `org.apache.pulsar.broker.loadbalance.ModularLoadManagerStrategy`, and there are four implementations. Among them, `RoundRobinBrokerSelector` is usually not considered because it places bundles using a round robin method without considering key information such as load data. In the following sections, we will focus on the `LeastLongTermMessageRate` and `LeastResourceUsageWithWeight` implementations, while the content related to `AvgShedder` will be covered in the next chapter.
 
-<figure><img src=".gitbook/assets/image (34).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image%20(34).png" alt=""><figcaption></figcaption></figure>
 
 
 
