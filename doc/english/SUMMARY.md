@@ -23,4 +23,5 @@
   * [3. Summary](chapter-4-load-balancing-algorithm-experimental-verification/3.-summary.md)
 * [Chapter 5 Load Balancing Algorithm - AvgShedder](chapter-5-load-balancing-algorithm-avgshedder/README.md)
   * [1. Scoring Algorithm](chapter-5-load-balancing-algorithm-avgshedder/1.-scoring-algorithm.md)
+  * [2. Multiple Times Trigger](chapter-5-load-balancing-algorithm-avgshedder/2.-multiple-times-trigger.md)
 * [Chapter 6 Load Balancing - Pratical Manual](chapter-6-load-balancing-pratical-manual.md)
