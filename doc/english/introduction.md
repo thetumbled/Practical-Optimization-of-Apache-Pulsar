@@ -24,7 +24,6 @@ Now, I plan to reorganize these materials to make them more accessible and easie
 
 If you are interested in exploring more topics, feel free to leave a message to let me know, and I will consider incorporating new topics into the book. Therefore, this book is not limited to the existing 10 chapters, and new topics may also stem from your suggestions.
 
-I will announce the release of my new article through the X platform, and I welcome everyone to follow my [X account ](https://x.com/thetumbledd)to receive the latest content in a timely manner.
 
 ## Chapter difficulty
 
@@ -36,7 +35,7 @@ Despite my efforts to present the content in a straightforward and comprehensibl
 
 [Chapter 4 Load Balancing Algorithm - Experimental Verification](chapter-4-load-balancing-algorithm-experimental-verification/)
 
-[Chapter 6 Load Balancing - Pratical Manual](chapter-6-load-balancing-practical-manual/)
+[Chapter 6 Load Balancing - Pratical Manual](chapter-6-load-balancing-algorithm-practical-manual/)
 
 * Difficult
 
