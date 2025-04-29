@@ -31,3 +31,4 @@
   * [7. Summary](chapter-5-load-balancing-algorithm-avgshedder/7.-summary.md)
 * [Chapter 6 Load Balancing - Practical Manual](chapter-6-load-balancing-practical-manual/README.md)
   * [1. Configuration](chapter-6-load-balancing-practical-manual/1.-configuration.md)
+  * [2. Monitoring](chapter-6-load-balancing-practical-manual/2.-monitoring.md)
