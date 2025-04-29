@@ -14,12 +14,3 @@ If you find any issues while reading the article, you are welcome to submit a PR
 
 If you are interested in exploring more topics, feel free to leave a message to let me know, and I will consider incorporating new topics into the book.
 
-## Subscription
-
-The release of new articles will be announced on the WeChat public account and X platform. You are welcome to follow my WeChat public account and X account to receive the latest content in a timely manner.
-
-X account: [@thetumbledd](https://x.com/thetumbledd)
-
-WeChat public account: thetumbled
-
-<figure><img src=".gitbook/assets/wechat.png" alt=""><figcaption></figcaption></figure>
