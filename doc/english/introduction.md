@@ -36,7 +36,7 @@ Despite my efforts to present the content in a straightforward and comprehensibl
 
 [Chapter 4 Load Balancing Algorithm - Experimental Verification](chapter-4-load-balancing-algorithm-experimental-verification/)
 
-[Chapter 6 Load Balancing - Pratical Manual](chapter-6-load-balancing-pratical-manual/)
+[Chapter 6 Load Balancing - Pratical Manual](chapter-6-load-balancing-practical-manual/)
 
 * Difficult
 
