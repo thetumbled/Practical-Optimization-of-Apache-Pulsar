@@ -26,4 +26,5 @@
   * [2. Multiple Times Trigger](chapter-5-load-balancing-algorithm-avgshedder/2.-multiple-times-trigger.md)
   * [3. Placement Strategy](chapter-5-load-balancing-algorithm-avgshedder/3.-placement-strategy.md)
   * [4. Production Effect](chapter-5-load-balancing-algorithm-avgshedder/4.-production-effect.md)
+  * [5. Comparative Experiment](chapter-5-load-balancing-algorithm-avgshedder/5.-comparative-experiment.md)
 * [Chapter 6 Load Balancing - Pratical Manual](chapter-6-load-balancing-pratical-manual.md)
