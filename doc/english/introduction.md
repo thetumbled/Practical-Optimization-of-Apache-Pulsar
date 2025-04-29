@@ -4,8 +4,6 @@
 
 Feng Wenzhi, an Apache Pulsar Committer, a senior engineer in the big data storage field at BIGO, graduated from Huazhong University of Science and Technology.
 
-
-
 ## Motivation
 
 Apache Pulsar is a distributed publish-subscribe messaging system, with a positioning similar to Kafka. However, it surpasses Kafka in several aspects, such as implementing the **separation of storage and computation** (supporting load balancing, second-level load switching, elastic scaling), supporting up to **millions of Topic partitions**, and read-write separation. By migrating from Kafka to Pulsar, we leveraged the advantages of high throughput, low latency, and high reliability provided by Apache Pulsar, significantly enhancing our message processing capabilities, while reducing the operational costs of message queues, and saving nearly 50% on hardware expenses.
@@ -18,8 +16,6 @@ In reality, many default settings often leave much to be desired. Taking a key c
 
 During my involvement in the development and maintenance of Apache Pulsar, I have accumulated extensive experience and [research achievements](https://github.com/apache/pulsar/commits?author=thetumbled). These achievements have not only contributed to the community in the form of code but have also been integrated into the community's main repository, such as the new load balancing algorithm [**AvgShedder**](https://github.com/apache/pulsar/pull/22949) and the **delay queue** [**TimeBucket algorithm**](https://github.com/apache/pulsar/pull/23611). I have also been fortunate enough to become a Committer of Apache Pulsar. However, to maximize the utility of these achievements, user understanding and correct configuration are crucial. Therefore, this book aims to help users master these skills.
 
-
-
 ## Plan
 
 I have written 10 chapters in Chinese, totaling nearly 200 pages, covering topics such as Pulsar load balancing algorithms, delay queues (including both production and consumption ends), and BookKeeper load balancing, which is not supported in the community version. Previously, these materials were distributed to some participants at the Pulsar Meetup through an application process.
@@ -30,9 +26,7 @@ If you are interested in exploring more topics, feel free to leave a message to 
 
 I will announce the release of my new article through the X platform, and I welcome everyone to follow my [X account ](https://x.com/thetumbledd)to receive the latest content in a timely manner.
 
-
-
-## &#x20;Chapter difficulty
+## Chapter difficulty
 
 Despite my efforts to present the content in a straightforward and comprehensible manner, for beginners of Pulsar, some of the article content may still appear obscure and difficult to understand. Consequently, I have assigned a straightforward assessment score for the difficulty level of each chapter, categorizing it into two levels: difficult and easy. This enables readers to effortlessly navigate to the content that interests them.
 
@@ -42,37 +36,12 @@ Despite my efforts to present the content in a straightforward and comprehensibl
 
 [Chapter 4 Load Balancing Algorithm - Experimental Verification](chapter-4-load-balancing-algorithm-experimental-verification/)
 
-[Chapter 6 Load Balancing - Pratical Manual](chapter-6-load-balancing-pratical-manual.md)
-
-&#x20;
+[Chapter 6 Load Balancing - Pratical Manual](chapter-6-load-balancing-pratical-manual/)
 
 * Difficult
 
 [Chapter 2 Load Balancing Algorithm - LoadSheddingStrategy](chapter-2-load-balancing-algorithm-principles-and-analysis-load-shedding-strategy/)
 
-[Chapter 3 Load Balancing Algorithm - Placement Strategy](chapter-3-load-balancing-algorithm-principles-and-analysis-placement-strategy/README)
+[Chapter 3 Load Balancing Algorithm - Placement Strategy](chapter-3-load-balancing-algorithm-principles-and-analysis-placement-strategy/README/)
 
 [Chapter 5 Load Balancing Algorithm - AvgShedder](chapter-5-load-balancing-algorithm-avgshedder/)
-
-
-
-&#x20;
-
-&#x20;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

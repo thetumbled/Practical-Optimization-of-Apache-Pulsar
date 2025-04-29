@@ -29,4 +29,5 @@
   * [5. Comparative Experiment](chapter-5-load-balancing-algorithm-avgshedder/5.-comparative-experiment.md)
   * [6. Algorithm Rating](chapter-5-load-balancing-algorithm-avgshedder/6.-algorithm-rating.md)
   * [7. Summary](chapter-5-load-balancing-algorithm-avgshedder/7.-summary.md)
-* [Chapter 6 Load Balancing - Pratical Manual](chapter-6-load-balancing-pratical-manual.md)
+* [Chapter 6 Load Balancing - Pratical Manual](chapter-6-load-balancing-pratical-manual/README.md)
+  * [1. Configuration](chapter-6-load-balancing-pratical-manual/1.-configuration.md)
