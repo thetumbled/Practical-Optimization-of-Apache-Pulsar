@@ -1,5 +1,5 @@
-
 # Apache Pulsar 优化实战
+
 [![CC BY-NC-SA 4.0](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 本作品由冯文智制作，采用 **知识共享署名 4.0 国际许可协议** 进行许可。
@@ -14,11 +14,10 @@
 
 如果你有兴趣探索更多主题，欢迎留言告诉我，我会考虑将新主题纳入书中。
 
-
 ## 订阅
-新文章的发布会在微信公众号和X平台上进行通知，欢迎大家关注我的公众号和X账号，以便及时接收到最新内容。
 
-X账号：[@thetumbledd](https://x.com/thetumbledd)
+新文章的发布会在微信公众号上进行通知，欢迎大家关注我的公众号，以便及时接收到最新内容。
 
 微信公众号：thetumbled
+
 <figure><img src=".gitbook/assets/wechat.png" alt=""><figcaption></figcaption></figure>
