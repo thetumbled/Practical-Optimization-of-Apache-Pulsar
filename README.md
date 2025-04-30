@@ -16,9 +16,7 @@ If you are interested in exploring more topics, feel free to leave a message to 
 
 
 ## Subscription
-The release of new articles will be announced on the WeChat public account and X platform. You are welcome to follow my WeChat public account and X account to receive the latest content in a timely manner.
-
-X account: [@thetumbledd](https://x.com/thetumbledd)
+The release of new articles will be announced on the WeChat public account. You are welcome to follow my WeChat public account to receive the latest content in a timely manner.
 
 WeChat public account: thetumbled
 <figure><img src="./asset/wechat.png" alt=""><figcaption></figcaption></figure>
@@ -41,9 +39,7 @@ WeChat public account: thetumbled
 如果你有兴趣探索更多主题，欢迎留言告诉我，我会考虑将新主题纳入书中。
 
 ## 订阅
-新文章的发布会在微信公众号和X平台上进行通知，欢迎大家关注我的公众号和X账号，以便及时接收到最新内容。
-
-X账号：[@thetumbledd](https://x.com/thetumbledd)
+新文章的发布会在微信公众号上进行通知，欢迎大家关注我的公众号，以便及时接收到最新内容。
 
 微信公众号：thetumbled
 <figure><img src="./asset/wechat.png" alt=""><figcaption></figcaption></figure>
