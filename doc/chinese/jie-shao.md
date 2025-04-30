@@ -46,7 +46,7 @@ Apache Pulsar 是一个分布式发布-订阅消息系统，其定位与 Kafka �
 
 [第四章 负载均衡算法--实验验证](di-si-zhang-fu-zai-jun-heng-suan-fa-shi-yan-yan-zheng/)
 
-[第六章 负载均衡--使用指南](di-liu-zhang-fu-zai-jun-heng-shi-yong-zhi-nan/)
+[第六章 负载均衡算法--使用指南](di-liu-zhang-fu-zai-jun-heng-shi-yong-zhi-nan/)
 
 
 
