@@ -29,4 +29,7 @@
   * [5. 对比实验](di-wu-zhang-fu-zai-jun-heng-suan-fa-avgshedder/5.-dui-bi-shi-yan.md)
   * [6. 评分](di-wu-zhang-fu-zai-jun-heng-suan-fa-avgshedder/6.-ping-fen.md)
   * [7. 总结](di-wu-zhang-fu-zai-jun-heng-suan-fa-avgshedder/7.-zong-jie.md)
-* [第六章 负载均衡--使用指南](di-liu-zhang-fu-zai-jun-heng-shi-yong-zhi-nan.md)
+* [第六章 负载均衡--使用指南](di-liu-zhang-fu-zai-jun-heng-shi-yong-zhi-nan/README.md)
+  * [1. 配置](di-liu-zhang-fu-zai-jun-heng-shi-yong-zhi-nan/1.-pei-zhi.md)
+  * [2. 监控](di-liu-zhang-fu-zai-jun-heng-shi-yong-zhi-nan/2.-jian-kong.md)
+  * [3. 总结](di-liu-zhang-fu-zai-jun-heng-shi-yong-zhi-nan/3.-zong-jie.md)
