@@ -33,3 +33,4 @@
   * [1. Configuration](chapter-6-load-balancing-algorithm-practical-manual/1.-configuration.md)
   * [2. Monitoring](chapter-6-load-balancing-algorithm-practical-manual/2.-monitoring.md)
   * [3. Summary](chapter-6-load-balancing-algorithm-practical-manual/3.-summary.md)
+* [Chapter 7 Production-side Delay Queue](chapter-7-production-side-delay-queue.md)
