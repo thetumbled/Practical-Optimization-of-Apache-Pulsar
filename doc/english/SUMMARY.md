@@ -35,3 +35,6 @@
   * [3. Summary](chapter-6-load-balancing-algorithm-practical-manual/3.-summary.md)
 * [Chapter 7 Production-side Delay Queue](chapter-7-production-side-delay-queue/README.md)
   * [1. Introduction](chapter-7-production-side-delay-queue/1.-introduction.md)
+  * [2. Usage](chapter-7-production-side-delay-queue/2.-usage.md)
+  * [3. Principle Analysis](chapter-7-production-side-delay-queue/3.-principle-analysis.md)
+  * [4. Summary](chapter-7-production-side-delay-queue/4.-summary.md)
